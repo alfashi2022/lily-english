@@ -156,11 +156,13 @@ button {
 .mode.speak { background: linear-gradient(180deg, #ffe8df, #fff); }
 .mode.read { background: linear-gradient(180deg, #fff4d6, #fff); }
 .mode.words { background: linear-gradient(180deg, #e9fbe9, #fff); }
-.mode.book {
+.mode.book,
+.mode.extra {
   grid-column: 1 / -1;
   min-height: 96px;
-  background: linear-gradient(180deg, #efe7ff, #fff);
 }
+.mode.book { background: linear-gradient(180deg, #efe7ff, #fff); }
+.mode.extra { background: linear-gradient(180deg, #ffe8c7, #fff); }
 
 .book-count {
   font-weight: 800;

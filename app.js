@@ -211,6 +211,7 @@ function renderHome() {
       <button class="mode read" data-go="read"><span class="emoji">📖</span><strong>阅读</strong><span>分级小书，一页一页翻</span></button>
       <button class="mode words" data-go="words"><span class="emoji">🃏</span><strong>单词</strong><span>句子卡片 + 小测验</span></button>
       <button class="mode book" data-go="book"><span class="emoji">📘</span><strong>课本学习</strong><span>3A 四个单元，能学也能考</span></button>
+      <button class="mode extra" data-go="extra"><span class="emoji">📚</span><strong>课外学习</strong><span>童话故事 1000 词，先学前 7 课</span></button>
     </div>
     <p class="tip">句子比三年级上册稍进一步，会用 because、but、so，小故事里有过去时。用 Safari 打开后，点「分享 → 添加到主屏幕」，就会像 App 一样。口语需要允许麦克风。</p>`;
 }
@@ -566,16 +567,19 @@ function renderQuiz(deck) {
     </div>`;
 }
 
+function bookCatalog() {
+  return state.route === "extra" ? window.LILY_EXTRA : window.LILY_BOOK;
+}
+
 function currentBookUnit() {
-  return window.LILY_BOOK.units.find((unit) => unit.id === state.bookUnit);
+  return bookCatalog().units.find((unit) => unit.id === state.bookUnit);
 }
 
 function bookSections(unit) {
-  const sections = [
-    ["words", "单词", unit.words.length],
-    ["phrases", "词组", unit.phrases.length],
-    ["sentences", "句子", unit.sentences.length],
-  ];
+  const sentenceLabel = state.route === "extra" ? "课文" : "句子";
+  const sections = [["words", "单词", unit.words.length]];
+  if (unit.phrases?.length) sections.push(["phrases", "词组", unit.phrases.length]);
+  sections.push(["sentences", sentenceLabel, unit.sentences.length]);
   if (unit.grammar) sections.push(["grammar", "动词变化", unit.grammar.length]);
   if (unit.sounds) sections.push(["sounds", "语音", unit.sounds.length]);
   return sections;
@@ -609,15 +613,19 @@ function bookPool(unit, scope) {
   if (scope === "grammar") return tag(unit.grammar || [], "动词变化");
   if (scope === "sentences") return tag(unit.sentences.flatMap((group) => group.lines), "句子");
   const lines = unit.sentences.flatMap((group) => group.lines);
+  const phrases = unit.phrases || [];
+  const wordCount = phrases.length ? 4 : 6;
+  const lineCount = phrases.length ? 4 : 6;
   return [
-    ...tag(shuffle(unit.words).slice(0, 4), "单词"),
-    ...tag(shuffle(unit.phrases).slice(0, 4), "词组"),
-    ...tag(shuffle(lines).slice(0, 4), "句子"),
+    ...tag(shuffle(unit.words).slice(0, wordCount), "单词"),
+    ...(phrases.length ? tag(shuffle(phrases).slice(0, 4), "词组") : []),
+    ...tag(shuffle(lines).slice(0, lineCount), "句子"),
   ];
 }
 
 function renderBookUnits() {
-  const cards = window.LILY_BOOK.units
+  const extra = state.route === "extra";
+  const cards = bookCatalog().units
     .map(
       (unit) => `<button class="item" data-book="${unit.id}">
         <div class="badge">${unit.emoji}</div>
@@ -625,9 +633,13 @@ function renderBookUnits() {
       </button>`
     )
     .join("");
+  const title = extra ? "课外学习" : "课本学习";
+  const tip = extra
+    ? "《童话故事记完小学1000词》前 7 课。单词和课文在同一页，点一行就听。默写写在纸上，再看答案。"
+    : "一个单元的单词和句子都在同一页。点一行就听。默写准备一张纸，听完写在纸上，再看答案。";
   app.innerHTML = `${topbar()}
-    <div class="nav-row"><button class="back" data-go="home">← 回家</button><h2>课本学习</h2></div>
-    <p class="tip">一个单元的单词和句子都在同一页。点一行就听。默写准备一张纸，听完写在纸上，再看答案。</p>
+    <div class="nav-row"><button class="back" data-go="home">← 回家</button><h2>${title}</h2></div>
+    <p class="tip">${tip}</p>
     <div class="list">${cards}</div>`;
 }
 
@@ -642,7 +654,7 @@ function renderBookUnit() {
     )
     .join("");
   app.innerHTML = `${topbar()}
-    <div class="nav-row"><button class="back" data-go="book">← 课本</button><h2>${unit.emoji} ${unit.no}</h2></div>
+    <div class="nav-row"><button class="back" data-go="${state.route}">← ${state.route === "extra" ? "课外" : "课本"}</button><h2>${unit.emoji} ${unit.no}</h2></div>
     <p class="tip">${esc(unit.title)} · ${esc(unit.titleZh)}</p>
     <div class="list">${cards}</div>
     <div class="row-actions"><button class="secondary" data-action="book-exam">默写考试</button></div>`;
@@ -650,7 +662,7 @@ function renderBookUnit() {
 
 function renderBookStudy() {
   const unit = currentBookUnit();
-  const labels = { words: "单词", phrases: "词组", sentences: "句子", grammar: "动词变化", sounds: "语音" };
+  const labels = { words: "单词", phrases: "词组", sentences: state.route === "extra" ? "课文" : "句子", grammar: "动词变化", sounds: "语音" };
   const coverEn = state.bookCover === "en";
   const coverZh = state.bookCover === "zh";
   const showCover = state.bookSection !== "sounds";
@@ -724,13 +736,13 @@ function bookReadAll() {
 function renderBookSetup() {
   const unit = currentBookUnit();
   const sentenceCount = unit.sentences.reduce((sum, group) => sum + group.lines.length, 0);
-  const scopes = [
-    ["words", "单词", unit.words.length],
-    ["phrases", "词组", unit.phrases.length],
-    ["sentences", "句子", sentenceCount],
-  ];
+  const sentenceLabel = state.route === "extra" ? "课文" : "句子";
+  const scopes = [["words", "单词", unit.words.length]];
+  if (unit.phrases?.length) scopes.push(["phrases", "词组", unit.phrases.length]);
+  scopes.push(["sentences", sentenceLabel, sentenceCount]);
   if (unit.grammar) scopes.push(["grammar", "动词变化", unit.grammar.length]);
   scopes.push(["mix", "混合", 12]);
+  if (!scopes.some(([id]) => id === state.bookScope)) state.bookScope = "words";
   const listen = [
     ["zh", "听中文，写英文"],
     ["en", "听英文，照着写"],
@@ -860,13 +872,14 @@ function renderBookResult() {
 }
 
 function render() {
+  const lesson = state.route === "book" || state.route === "extra";
   if (state.route === "home") return renderHome();
-  if (state.route === "book" && state.bookMode === "units") return renderBookUnits();
-  if (state.route === "book" && state.bookMode === "unit") return renderBookUnit();
-  if (state.route === "book" && state.bookMode === "study") return renderBookStudy();
-  if (state.route === "book" && state.bookMode === "exam-setup") return renderBookSetup();
-  if (state.route === "book" && state.bookMode === "exam") return renderBookExam();
-  if (state.route === "book" && state.bookMode === "result") return renderBookResult();
+  if (lesson && state.bookMode === "units") return renderBookUnits();
+  if (lesson && state.bookMode === "unit") return renderBookUnit();
+  if (lesson && state.bookMode === "study") return renderBookStudy();
+  if (lesson && state.bookMode === "exam-setup") return renderBookSetup();
+  if (lesson && state.bookMode === "exam") return renderBookExam();
+  if (lesson && state.bookMode === "result") return renderBookResult();
   if (state.route === "listen" && !state.listenId) return renderListenList();
   if (state.route === "listen") return renderListen();
   if (state.route === "speak" && state.speakMode === "menu") return renderSpeakMenu();
@@ -1131,7 +1144,7 @@ app.addEventListener("click", (event) => {
 
   if (t.dataset.book) {
     stopSpeech();
-    state.route = "book";
+    if (state.route !== "extra") state.route = "book";
     state.bookUnit = t.dataset.book;
     state.bookMode = "unit";
     render();
