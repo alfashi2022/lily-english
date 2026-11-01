@@ -212,6 +212,14 @@ button {
   line-height: 1.35;
 }
 
+.book-row .ipa {
+  display: block;
+  margin-top: 2px;
+  color: #c47b5a;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 .book-row small {
   display: block;
   color: var(--muted);

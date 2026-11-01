@@ -90,10 +90,10 @@ function greeting() {
 let speechToken = 0;
 let activeUtterance = null;
 
-function englishUtter(text) {
+function englishUtter(text, rate = 1) {
   const utter = new SpeechSynthesisUtterance(text);
   utter.lang = "en-US";
-  utter.rate = 1;
+  utter.rate = rate;
   utter.pitch = 1;
   const voices = window.speechSynthesis.getVoices().filter(
     (voice) => voice.lang.startsWith("en") && !/bad news|bahh|bells|boing|bubbles|cellos|zarvox|trinoids|whisper|deranged/i.test(voice.name)
@@ -111,25 +111,27 @@ function stopSpeech() {
   if (window.speechSynthesis) window.speechSynthesis.cancel();
 }
 
-function speakSequence(lines, onIndex) {
+function speakSequence(lines, onIndex, options = {}) {
   const token = ++speechToken;
   const queue = lines.filter(Boolean);
+  const rate = options.rate || 1;
+  const gap = options.gap ?? 280;
   if (window.speechSynthesis) window.speechSynthesis.cancel();
   let index = 0;
   const step = () => {
     if (token !== speechToken || index >= queue.length) return;
-    const utter = englishUtter(queue[index]);
+    const utter = englishUtter(queue[index], rate);
     activeUtterance = utter;
     const current = index;
     utter.onend = () => {
       if (token !== speechToken) return;
       index += 1;
-      window.setTimeout(step, 280);
+      window.setTimeout(step, gap);
     };
     utter.onerror = () => {
       if (token !== speechToken) return;
       index += 1;
-      window.setTimeout(step, 280);
+      window.setTimeout(step, gap);
     };
     if (onIndex) onIndex(current);
     window.speechSynthesis.speak(utter);
@@ -137,8 +139,8 @@ function speakSequence(lines, onIndex) {
   window.setTimeout(step, 120);
 }
 
-function speakEn(text) {
-  speakSequence([text]);
+function speakEn(text, options) {
+  speakSequence([text], null, options);
 }
 
 function speakLines(lines) {
@@ -551,6 +553,12 @@ function renderQuiz(deck) {
     </div>`;
 }
 
+function ipaFor(word) {
+  return window.LILY_IPA?.[String(word).toLowerCase()] || "";
+}
+
+const READ_PACE = { rate: 0.82, gap: 680 };
+
 function bookCatalog() {
   return state.route === "extra" ? window.LILY_EXTRA : window.LILY_BOOK;
 }
@@ -587,11 +595,21 @@ function studyRows() {
       words: sound.words.split(",").map((word) => word.trim()).filter(Boolean),
     }));
   }
-  return (unit[state.bookSection] || []).map((item) => ({ type: "line", en: item.en, zh: item.zh }));
+  return (unit[state.bookSection] || []).map((item) => ({
+    type: "line",
+    en: item.en,
+    zh: item.zh,
+    ipa: state.bookSection === "words" ? ipaFor(item.en) : "",
+  }));
 }
 
 function bookPool(unit, scope) {
-  const tag = (list, kind) => list.map((item) => ({ en: item.en, zh: item.zh, kind }));
+  const tag = (list, kind) => list.map((item) => ({
+    en: item.en,
+    zh: item.zh,
+    kind,
+    ipa: kind === "单词" ? ipaFor(item.en) : "",
+  }));
   if (scope === "words") return tag(unit.words, "单词");
   if (scope === "phrases") return tag(unit.phrases, "词组");
   if (scope === "grammar") return tag(unit.grammar || [], "动词变化");
@@ -695,8 +713,9 @@ function renderBookStudy() {
       hearIndex += 1;
       const en = coverEn ? "····" : row.en;
       const zh = coverZh ? "····" : row.zh;
+      const ipa = !coverEn && row.ipa ? `<span class="ipa">${esc(row.ipa)}</span>` : "";
       return `<button class="book-row" data-book-hear="${index}">
-        <b>${esc(en)}</b>
+        <b>${esc(en)}</b>${ipa}
         <small>${esc(zh)}</small>
       </button>`;
     })
@@ -725,7 +744,7 @@ function speakStudyAt(index) {
     el.classList.toggle("on", Number(el.dataset.bookHear) === index);
   });
   if (row.type === "sound") speakSequence(row.words);
-  else speakEn(row.en);
+  else speakEn(row.en, state.bookSection === "sentences" ? READ_PACE : undefined);
 }
 
 function bookReadAll() {
@@ -743,7 +762,7 @@ function bookReadAll() {
       el.classList.toggle("on", Number(el.dataset.bookHear) === index);
     });
     document.querySelector(`[data-book-hear="${index}"]`)?.scrollIntoView({ block: "nearest" });
-  });
+  }, state.bookSection === "sentences" ? READ_PACE : undefined);
 }
 
 function renderBookSetup() {
@@ -803,7 +822,7 @@ function renderBookExam() {
   const question = state.bookQuiz[state.bookQuizIndex];
   const listenLabel = state.bookListen === "zh" ? "听中文，在纸上写英文" : "听英文，在纸上照着写";
   const body = state.bookChecked
-    ? `<div class="book-row static"><b>${esc(question.en)}</b><small>${esc(question.zh)}</small></div>
+    ? `<div class="book-row static"><b>${esc(question.en)}</b>${question.ipa ? `<span class="ipa">${esc(question.ipa)}</span>` : ""}<small>${esc(question.zh)}</small></div>
        <div class="dictation-bar">
          <button class="primary" data-action="book-right">写对了</button>
          <button class="danger-soft" data-action="book-wrong">写错了</button>
