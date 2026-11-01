@@ -7,6 +7,7 @@ window.LILY_EXTRA = {
       title: "Little Red Riding Hood",
       titleZh: "小红帽",
       emoji: "🧣",
+      cover: "./images/p1-hood.jpg",
       words: [
         { en: "little", zh: "小的" },
         { en: "girl", zh: "女孩" },
@@ -43,6 +44,7 @@ window.LILY_EXTRA = {
       sentences: [
         {
           title: "小红帽",
+          image: "./images/p1-hood.jpg",
           lines: [
             { en: "There is a little girl.", zh: "有一个小女孩。" },
             { en: "She always wears a red hood, so people call her Little Red Riding Hood.", zh: "她总是戴着一顶红色的兜帽，所以大家叫她小红帽。" },
@@ -50,6 +52,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "去看外婆",
+          image: "./images/p1-path.jpg",
           lines: [
             { en: "One day, her mother says, \"Take food to your grandma. She is sick.\"", zh: "一天，妈妈说：把食物带给你的外婆。她生病了。" },
             { en: "On the way, Little Red Riding Hood meets a wolf.", zh: "在路上，小红帽遇见一只狼。" },
@@ -59,6 +62,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "狼的伪装",
+          image: "./images/p1-cottage.jpg",
           lines: [
             { en: "Then the wolf runs to Grandma's house.", zh: "然后狼跑到外婆家。" },
             { en: "Grandma hides in the closet.", zh: "外婆藏在壁橱里。" },
@@ -76,6 +80,7 @@ window.LILY_EXTRA = {
       title: "The Ugly Duckling",
       titleZh: "丑小鸭",
       emoji: "🦆",
+      cover: "./images/p2-hatch.jpg",
       words: [
         { en: "duck", zh: "鸭" },
         { en: "sit", zh: "坐" },
@@ -103,6 +108,7 @@ window.LILY_EXTRA = {
       sentences: [
         {
           title: "丑小鸭",
+          image: "./images/p2-hatch.jpg",
           lines: [
             { en: "A mother duck sits on her eggs.", zh: "鸭妈妈坐在她的蛋上。" },
             { en: "Soon, small yellow ducks come out. They are so cute!", zh: "不久，黄色的小鸭子出来了。它们真可爱！" },
@@ -113,6 +119,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "离开家",
+          image: "./images/p2-fields.jpg",
           lines: [
             { en: "His brothers and sisters peck him.", zh: "他的兄弟姐妹啄他。" },
             { en: "Farm animals like chickens and geese laugh at him.", zh: "农场里的鸡和鹅都嘲笑他。" },
@@ -128,6 +135,7 @@ window.LILY_EXTRA = {
       title: "The King's New Clothes",
       titleZh: "皇帝的新衣",
       emoji: "👑",
+      cover: "./images/p3-king.jpg",
       words: [
         { en: "long", zh: "长的" },
         { en: "ago", zh: "以前" },
@@ -159,6 +167,7 @@ window.LILY_EXTRA = {
       sentences: [
         {
           title: "新衣服",
+          image: "./images/p3-king.jpg",
           lines: [
             { en: "Long long ago, there was a king.", zh: "很久以前，有一个国王。" },
             { en: "He liked new clothes.", zh: "他喜欢新衣服。" },
@@ -169,6 +178,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "魔法衣服",
+          image: "./images/p3-clothes.jpg",
           lines: [
             { en: "The two men showed the king his new clothes.", zh: "这两个人给国王看他的新衣服。" },
             { en: "\"My king, please try on these magic clothes.\"", zh: "国王，请试穿这些有魔力的衣服。" },
@@ -178,6 +188,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "街上的人",
+          image: "./images/p3-street.jpg",
           lines: [
             { en: "There were a lot of people in the street.", zh: "街上有许多人。" },
             { en: "They looked at the king and shouted, \"What beautiful clothes!\"", zh: "他们看着国王，大喊：多漂亮的衣服！" },
@@ -193,6 +204,7 @@ window.LILY_EXTRA = {
       title: "The Little Match Girl",
       titleZh: "卖火柴的小女孩",
       emoji: "🕯️",
+      cover: "./images/p4-eve.jpg",
       words: [
         { en: "poor", zh: "可怜的" },
         { en: "sell", zh: "卖" },
@@ -226,6 +238,7 @@ window.LILY_EXTRA = {
       sentences: [
         {
           title: "平安夜",
+          image: "./images/p4-eve.jpg",
           lines: [
             { en: "It is Christmas Eve. It snows.", zh: "圣诞节前夕，天下着雪。" },
             { en: "A poor little girl sells matches.", zh: "一个可怜的小女孩在卖火柴。" },
@@ -236,6 +249,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "火柴",
+          image: "./images/p4-match.jpg",
           lines: [
             { en: "So she lights a match. She sees a roast chicken.", zh: "于是她点燃一根火柴，看见一只烤鸡。" },
             { en: "Then the chicken is gone.", zh: "接着烤鸡消失了。" },
@@ -246,6 +260,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "奶奶",
+          image: "./images/p4-grandma.jpg",
           lines: [
             { en: "Grandma shows! She cries.", zh: "奶奶出现了！她哭了。" },
             { en: "Grandma takes her away.", zh: "奶奶把她带走了。" },
@@ -260,6 +275,7 @@ window.LILY_EXTRA = {
       title: "Thumbelina",
       titleZh: "拇指姑娘",
       emoji: "🌷",
+      cover: "./images/p5-flower.jpg",
       words: [
         { en: "woman", zh: "女人" },
         { en: "child", zh: "孩子" },
@@ -285,6 +301,7 @@ window.LILY_EXTRA = {
       sentences: [
         {
           title: "拇指姑娘",
+          image: "./images/p5-flower.jpg",
           lines: [
             { en: "A woman wants a child. A fairy gives her a seed.", zh: "一个女人想要一个孩子。一位仙女给了她一颗种子。" },
             { en: "Soon a lovely flower grows, and a little girl comes out.", zh: "不久，一朵可爱的花长出来，里面有一个小女孩。" },
@@ -294,6 +311,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "燕子",
+          image: "./images/p5-swallow.jpg",
           lines: [
             { en: "Then Thumbelina helps a swallow. They become friends.", zh: "然后拇指姑娘帮助一只燕子。他们成了朋友。" },
             { en: "In spring, the swallow flies with her to a tiny country.", zh: "春天，燕子带她飞到一个很小的国家。" },
@@ -310,6 +328,7 @@ window.LILY_EXTRA = {
       title: "Snow White",
       titleZh: "白雪公主和七个小矮人",
       emoji: "🍎",
+      cover: "./images/p6-forest.jpg",
       words: [
         { en: "kingdom", zh: "王国" },
         { en: "princess", zh: "公主" },
@@ -334,6 +353,7 @@ window.LILY_EXTRA = {
       sentences: [
         {
           title: "白雪公主",
+          image: "./images/p6-forest.jpg",
           lines: [
             { en: "In a kingdom, there lives a beautiful princess named Snow White.", zh: "在一个王国里，住着一位美丽的公主，名叫白雪公主。" },
             { en: "She has a bad stepmother.", zh: "她有一个坏继母。" },
@@ -344,6 +364,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "七个小矮人",
+          image: "./images/p6-dwarfs.jpg",
           lines: [
             { en: "Snow White finds a small house in the woods.", zh: "白雪公主在树林中找到一座小房子。" },
             { en: "Seven dwarfs live there. They let her stay with them.", zh: "七个小矮人住在那里。他们让她留下来。" },
@@ -353,6 +374,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "王子",
+          image: "./images/p6-prince.jpg",
           lines: [
             { en: "Snow White eats it and falls asleep. The dwarfs are very sad.", zh: "白雪公主吃了它，睡着了。小矮人们非常伤心。" },
             { en: "One day, a prince comes. He kisses her.", zh: "一天，一位王子来了。他亲吻了她。" },
@@ -367,6 +389,7 @@ window.LILY_EXTRA = {
       title: "The Three Little Pigs",
       titleZh: "三只小猪",
       emoji: "🐷",
+      cover: "./images/p7-houses.jpg",
       words: [
         { en: "pig", zh: "猪" },
         { en: "leave", zh: "离开" },
@@ -394,6 +417,7 @@ window.LILY_EXTRA = {
       sentences: [
         {
           title: "三座房子",
+          image: "./images/p7-houses.jpg",
           lines: [
             { en: "There are three little pigs. They leave home to start their own lives.", zh: "有三只小猪。他们离开家，开始自己的生活。" },
             { en: "The first pig is lazy. He builds a house of straw fast.", zh: "第一只猪很懒。他很快建了一座稻草房。" },
@@ -405,6 +429,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "大灰狼",
+          image: "./images/p7-wolf.jpg",
           lines: [
             { en: "One day, a wolf comes. He blows down the straw and stick houses easily.", zh: "一天，狼来了。他轻易吹倒了稻草房和树枝房。" },
             { en: "The first two pigs run to the third pig's brick house quickly.", zh: "前两只小猪很快跑到第三只猪的砖房。" },
@@ -414,6 +439,7 @@ window.LILY_EXTRA = {
         },
         {
           title: "后来",
+          image: "./images/p7-picnic.jpg",
           lines: [
             { en: "From then on, the first two little pigs are no longer lazy.", zh: "从那以后，前两只小猪不再懒惰了。" },
             { en: "They work hard together and live a happy life in their own brick houses.", zh: "他们一起努力工作，住在自己的砖房里，过着幸福的生活。" },

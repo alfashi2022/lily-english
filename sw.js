@@ -1,5 +1,5 @@
-const CACHE = "lily-english-v14";
-const FILES = ["./index.html", "./styles.css?v=14", "./app.js?v=14", "./content.js?v=14", "./textbook.js?v=14", "./extra.js?v=14", "./manifest.json", "./icon.svg"];
+const CACHE = "lily-english-v15";
+const FILES = ["./index.html", "./styles.css?v=15", "./app.js?v=15", "./content.js?v=15", "./textbook.js?v=15", "./extra.js?v=15", "./manifest.json", "./icon.svg"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)));

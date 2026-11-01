@@ -623,12 +623,15 @@ function bookPool(unit, scope) {
 function renderBookUnits() {
   const extra = state.route === "extra";
   const cards = bookCatalog().units
-    .map(
-      (unit) => `<button class="item" data-book="${unit.id}">
-        <div class="badge">${unit.emoji}</div>
+    .map((unit) => {
+      const mark = extra && unit.cover
+        ? `<img class="story-thumb" src="${unit.cover}" alt="">`
+        : `<div class="badge">${unit.emoji}</div>`;
+      return `<button class="item" data-book="${unit.id}">
+        ${mark}
         <div><b>${unit.no} ${esc(unit.title)}</b><small>${esc(unit.titleZh)} · ${unit.words.length} 个单词</small></div>
-      </button>`
-    )
+      </button>`;
+    })
     .join("");
   const title = extra ? "课外学习" : "课本学习";
   const tip = extra
@@ -650,21 +653,47 @@ function renderBookUnit() {
       </button>`
     )
     .join("");
+  const cover = state.route === "extra" && unit.cover ? `<img class="story-cover" src="${unit.cover}" alt="">` : "";
   app.innerHTML = `${topbar()}
     <div class="nav-row"><button class="back" data-go="${state.route}">← ${state.route === "extra" ? "课外" : "课本"}</button><h2>${unit.emoji} ${unit.no}</h2></div>
+    ${cover}
     <p class="tip">${esc(unit.title)} · ${esc(unit.titleZh)}</p>
     <div class="list">${cards}</div>
     <div class="row-actions"><button class="secondary" data-action="book-exam">默写考试</button></div>`;
 }
 
+function renderStoryScenes(unit) {
+  const coverEn = state.bookCover === "en";
+  const coverZh = state.bookCover === "zh";
+  let hearIndex = 0;
+  return unit.sentences
+    .map((group) => {
+      const lines = group.lines
+        .map((line) => {
+          const index = hearIndex;
+          hearIndex += 1;
+          const en = coverEn ? "····" : line.en;
+          const zh = coverZh ? "····" : line.zh;
+          return `<button class="book-row" data-book-hear="${index}"><b>${esc(en)}</b><small>${esc(zh)}</small></button>`;
+        })
+        .join("");
+      const art = group.image ? `<img class="scene-art" src="${group.image}" alt="${esc(group.title)}">` : "";
+      return `<section class="scene-card">${art}<h3>${esc(group.title)}</h3><div class="scene-lines">${lines}</div></section>`;
+    })
+    .join("");
+}
+
 function renderBookStudy() {
   const unit = currentBookUnit();
   const labels = { words: "单词", phrases: "词组", sentences: state.route === "extra" ? "课文" : "句子", grammar: "动词变化", sounds: "语音" };
+  const story = state.route === "extra" && state.bookSection === "sentences";
   const coverEn = state.bookCover === "en";
   const coverZh = state.bookCover === "zh";
   const showCover = state.bookSection !== "sounds";
   let hearIndex = 0;
-  const body = studyRows()
+  const body = story
+    ? renderStoryScenes(unit)
+    : studyRows()
     .map((row) => {
       if (row.type === "head") return `<div class="book-head">${esc(row.text)}</div>`;
       if (row.type === "sound") {
@@ -698,7 +727,7 @@ function renderBookStudy() {
       <button class="primary" data-action="book-read-all">从头读到尾</button>
     </div>
     ${cover}
-    <div class="book-list">${body}</div>`;
+    <div class="${story ? "story-pages" : "book-list"}">${body}</div>`;
 }
 
 function speakStudyAt(index) {
