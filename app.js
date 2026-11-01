@@ -164,7 +164,7 @@ if (window.speechSynthesis) {
 }
 
 function catAvatar() {
-  return `<img class="cat" src="./images/coco.jpg" alt="">`;
+  return `<img class="cat" src="./images/coco.jpg?v=17" alt="">`;
 }
 
 function topbar() {

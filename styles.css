@@ -98,7 +98,7 @@ button {
 
 .hero {
   display: grid;
-  grid-template-columns: 112px 1fr;
+  grid-template-columns: 128px 1fr;
   gap: 16px;
   align-items: center;
   margin-bottom: 18px;
@@ -116,12 +116,12 @@ button {
 }
 
 .cat {
-  width: 112px;
-  height: 112px;
-  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+  border-radius: 28px;
   object-fit: cover;
   display: block;
-  box-shadow: 0 8px 18px rgba(183, 110, 72, 0.28);
+  box-shadow: 0 8px 18px rgba(183, 110, 72, 0.22);
 }
 
 .panel .cat {
