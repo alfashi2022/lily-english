@@ -1,7 +1,7 @@
 window.LILY_CONTENT = {
   companion: {
-    name: "Pip",
-    nameZh: "小狐狸 Pip",
+    name: "Coco",
+    nameZh: "小猫咪 Coco",
   },
 
   // 比三年级上册稍进一步：because / but / so，Level 3 小故事用过去时。
@@ -14,11 +14,11 @@ window.LILY_CONTENT = {
       emoji: "🏃",
       minutes: 3,
       lines: [
-        { en: "It's sunny, so Lily and Pip go to the park.", zh: "今天晴天，所以 Lily 和 Pip 去公园。" },
-        { en: "Pip can run fast, and Lily runs too.", zh: "Pip 跑得很快，Lily 也跑。" },
+        { en: "It's sunny, so Lily and Coco go to the park.", zh: "今天晴天，所以 Lily 和 Coco 去公园。" },
+        { en: "Coco can run fast, and Lily runs too.", zh: "Coco 跑得很快，Lily 也跑。" },
         { en: "But Lily feels tired. She wants to sit down.", zh: "但是 Lily 累了。她想坐下。" },
         { en: "So they drink some cold juice.", zh: "所以他们喝了点冰果汁。" },
-        { en: "Then Pip runs again. Lily says, \"Wait for me!\"", zh: "然后 Pip 又跑了。Lily 说：“等等我！”" },
+        { en: "Then Coco runs again. Lily says, \"Wait for me!\"", zh: "然后 Coco 又跑了。Lily 说：“等等我！”" },
         { en: "They feel happy because the park is fun.", zh: "他们很开心，因为公园很好玩。" },
       ],
     },
@@ -49,9 +49,9 @@ window.LILY_CONTENT = {
         { en: "It's rainy, so Lily can't go to the park.", zh: "下雨了，所以 Lily 不能去公园。" },
         { en: "She feels sad because she wants to run.", zh: "她有点难过，因为她想去跑。" },
         { en: "Then her mother says, \"Let's read a book.\"", zh: "然后妈妈说：“我们来读书吧。”" },
-        { en: "They read a story about a little fox.", zh: "他们读了一个小狐狸的故事。" },
+        { en: "They read a story about a little cat.", zh: "他们读了一个小猫的故事。" },
         { en: "Later, the rain stops, and now it is sunny.", zh: "后来雨停了，现在是晴天。" },
-        { en: "So Lily and Pip go to the park. She feels happy again.", zh: "所以 Lily 和 Pip 去了公园。她又开心了。" },
+        { en: "So Lily and Coco go to the park. She feels happy again.", zh: "所以 Lily 和 Coco 去了公园。她又开心了。" },
       ],
     },
     {
@@ -63,10 +63,10 @@ window.LILY_CONTENT = {
       minutes: 3,
       lines: [
         { en: "Yesterday was Lily's birthday. She felt happy.", zh: "昨天是 Lily 的生日。她很开心。" },
-        { en: "Her mother made a cake, and Pip wanted some.", zh: "妈妈做了一个蛋糕，Pip 也想吃。" },
+        { en: "Her mother made a cake, and Coco wanted some.", zh: "妈妈做了一个蛋糕，Coco 也想吃。" },
         { en: "Then Lily opened a gift. It was a small red ball.", zh: "然后 Lily 打开一份礼物。是一个小红球。" },
         { en: "They played, but the ball went under a chair.", zh: "他们玩了起来，可是球滚到了椅子下面。" },
-        { en: "Pip looked and looked. Then he found the ball.", zh: "Pip 找了又找。然后他找到了球。" },
+        { en: "Coco looked and looked. Then she found the ball.", zh: "Coco 找了又找。然后她找到了球。" },
         { en: "They ate cake together. It was a happy day.", zh: "他们一起吃了蛋糕。这是开心的一天。" },
       ],
     },
@@ -78,7 +78,7 @@ window.LILY_CONTENT = {
       { en: "My mother can sing, but I can't.", zh: "我的妈妈会唱歌，但是我不会。" },
       { en: "It's rainy, so we stay at home.", zh: "下雨了，所以我们待在家里。" },
       { en: "I go to the park with my father.", zh: "我和爸爸去公园。" },
-      { en: "Pip was hungry, so he ate an apple.", zh: "Pip 饿了，所以他吃了一个苹果。" },
+      { en: "Coco was hungry, so she ate an apple.", zh: "Coco 饿了，所以她吃了一个苹果。" },
       { en: "I like cats because they are small.", zh: "我喜欢猫，因为它们小小的。" },
       { en: "We had cake on my birthday.", zh: "我生日那天我们吃了蛋糕。" },
       { en: "She was sad, but now she feels happy.", zh: "她刚才难过，可是现在开心了。" },
@@ -103,11 +103,11 @@ window.LILY_CONTENT = {
         zh: "你和谁去公园？",
         hint: "With my mother.",
         hintZh: "和妈妈。也可以说 father、friend",
-        accept: ["mother", "mom", "mum", "father", "dad", "friend", "family", "sister", "brother", "pip"],
+        accept: ["mother", "mom", "mum", "father", "dad", "friend", "family", "sister", "brother", "coco"],
       },
       {
-        en: "Where did Pip find the ball?",
-        zh: "Pip 在哪里找到球的？",
+        en: "Where did Coco find the ball?",
+        zh: "Coco 在哪里找到球的？",
         hint: "Under a chair.",
         hintZh: "在椅子下面。",
         accept: ["chair", "under"],
@@ -135,7 +135,7 @@ window.LILY_CONTENT = {
             pipZh: "你现在想做什么？",
             replies: [
               { en: "I want to go to the park.", zh: "我想去公园。", keys: ["park"], pip: "Let's go. But wait for me!", pipZh: "我们走吧。但是要等等我！" },
-              { en: "I want to read a book.", zh: "我想看书。", keys: ["read", "book"], pip: "Good. I like stories about foxes.", pipZh: "好。我喜欢狐狸的故事。" },
+              { en: "I want to read a book.", zh: "我想看书。", keys: ["read", "book"], pip: "Good. I like stories about cats.", pipZh: "好。我喜欢小猫的故事。" },
               { en: "I want to eat some cake.", zh: "我想吃蛋糕。", keys: ["cake"], pip: "Me too. Cake is sweet.", pipZh: "我也是。蛋糕甜甜的。" },
             ],
           },
@@ -145,7 +145,7 @@ window.LILY_CONTENT = {
             replies: [
               { en: "I play with my mother.", zh: "我和妈妈玩。", keys: ["mother", "mom", "mum"], pip: "She can sing. That is nice.", pipZh: "她会唱歌。真好。" },
               { en: "I play with my friend.", zh: "我和朋友玩。", keys: ["friend"], pip: "Friends make a sunny day better.", pipZh: "有朋友，晴天更开心。" },
-              { en: "I play with you, Pip.", zh: "我和你玩，Pip。", keys: ["you", "pip"], pip: "Hooray! I can run with you.", pipZh: "好耶！我可以和你一起跑。" },
+              { en: "I play with you, Coco.", zh: "我和你玩，Coco。", keys: ["you", "coco"], pip: "Hooray! I can run with you.", pipZh: "好耶！我可以和你一起跑。" },
             ],
           },
         ],
@@ -171,7 +171,7 @@ window.LILY_CONTENT = {
             pipZh: "你的妈妈会做什么？",
             replies: [
               { en: "She can sing, but she can't draw.", zh: "她会唱歌，但是不会画画。", keys: ["sing"], pip: "Singing is enough. I like songs.", pipZh: "会唱歌就很好。我喜欢歌。" },
-              { en: "She can draw very well.", zh: "她很会画画。", keys: ["draw"], pip: "Ask her to draw a little fox.", pipZh: "请她画一只小狐狸吧。" },
+              { en: "She can draw very well.", zh: "她很会画画。", keys: ["draw"], pip: "Ask her to draw a little cat.", pipZh: "请她画一只小猫吧。" },
               { en: "She can swim with me.", zh: "她可以和我一起游泳。", keys: ["swim"], pip: "Swimming on a hot day is nice.", pipZh: "热天游泳很舒服。" },
             ],
           },
@@ -279,13 +279,13 @@ window.LILY_CONTENT = {
           scene: "☀️🌳",
           lines: [
             { en: "It's sunny today.", zh: "今天是晴天。" },
-            { en: "So Lily and Pip go to the park.", zh: "所以 Lily 和 Pip 去公园。" },
+            { en: "So Lily and Coco go to the park.", zh: "所以 Lily 和 Coco 去公园。" },
           ],
         },
         {
-          scene: "🦊🏃",
+          scene: "🐱🏃",
           lines: [
-            { en: "Pip can run fast.", zh: "Pip 跑得很快。" },
+            { en: "Coco can run fast.", zh: "Coco 跑得很快。" },
             { en: "Lily can run too.", zh: "Lily 也会跑。" },
           ],
         },
@@ -304,14 +304,14 @@ window.LILY_CONTENT = {
           ],
         },
         {
-          scene: "🦊",
+          scene: "🐱",
           lines: [
-            { en: "Then Pip runs again.", zh: "然后 Pip 又跑了。" },
+            { en: "Then Coco runs again.", zh: "然后 Coco 又跑了。" },
             { en: "\"Wait for me!\" says Lily.", zh: "Lily 说：“等等我！”" },
           ],
         },
         {
-          scene: "👧🦊😊",
+          scene: "👧🐱😊",
           lines: [
             { en: "They feel happy.", zh: "他们很开心。" },
             { en: "The park is fun.", zh: "公园很好玩。" },
@@ -411,13 +411,13 @@ window.LILY_CONTENT = {
           scene: "👩📖",
           lines: [
             { en: "Then her mother says, \"Let's read.\"", zh: "然后妈妈说：“我们来读书吧。”" },
-            { en: "They read a book about a fox.", zh: "他们读了一本关于狐狸的书。" },
+            { en: "They read a book about a cat.", zh: "他们读了一本关于小猫的书。" },
           ],
         },
         {
-          scene: "🦊📖",
+          scene: "🐱📖",
           lines: [
-            { en: "Pip likes the story.", zh: "Pip 喜欢这个故事。" },
+            { en: "Coco likes the story.", zh: "Coco 喜欢这个故事。" },
             { en: "Lily feels better because the book is fun.", zh: "Lily 感觉好一点了，因为这本书很好玩。" },
           ],
         },
@@ -429,7 +429,7 @@ window.LILY_CONTENT = {
           ],
         },
         {
-          scene: "👧🦊",
+          scene: "👧🐱",
           lines: [
             { en: "So they go to the park.", zh: "所以他们去公园。" },
             { en: "Lily feels happy again.", zh: "Lily 又开心了。" },
@@ -512,24 +512,24 @@ window.LILY_CONTENT = {
       emoji: "🍎",
       pages: [
         {
-          scene: "🦊😋",
+          scene: "🐱😋",
           lines: [
-            { en: "Yesterday Pip was hungry.", zh: "昨天 Pip 饿了。" },
-            { en: "He wanted a red apple.", zh: "他想要一个红苹果。" },
+            { en: "Yesterday Coco was hungry.", zh: "昨天 Coco 饿了。" },
+            { en: "She wanted a red apple.", zh: "她想要一个红苹果。" },
           ],
         },
         {
           scene: "🍳",
           lines: [
-            { en: "He looked in the kitchen.", zh: "他在厨房里找。" },
-            { en: "But he did not see an apple.", zh: "可是他没看到苹果。" },
+            { en: "She looked in the kitchen.", zh: "她在厨房里找。" },
+            { en: "But she did not see an apple.", zh: "可是她没看到苹果。" },
           ],
         },
         {
           scene: "🌳",
           lines: [
-            { en: "Then he went to the park.", zh: "然后他去了公园。" },
-            { en: "He saw a big green tree.", zh: "他看见一棵大绿树。" },
+            { en: "Then she went to the park.", zh: "然后她去了公园。" },
+            { en: "She saw a big green tree.", zh: "她看见一棵大绿树。" },
           ],
         },
         {
@@ -547,16 +547,16 @@ window.LILY_CONTENT = {
           ],
         },
         {
-          scene: "🦊😊",
+          scene: "🐱😊",
           lines: [
-            { en: "Pip ate the apple.", zh: "Pip 吃了苹果。" },
-            { en: "He was happy because it was sweet.", zh: "他很开心，因为它甜甜的。" },
+            { en: "Coco ate the apple.", zh: "Coco 吃了苹果。" },
+            { en: "She was happy because it was sweet.", zh: "她很开心，因为它甜甜的。" },
           ],
         },
       ],
       check: {
-        ask: "Where did Pip find the apple?",
-        askZh: "Pip 在哪里找到苹果的？",
+        ask: "Where did Coco find the apple?",
+        askZh: "Coco 在哪里找到苹果的？",
         options: [
           { en: "Under a tree in the park.", zh: "在公园的一棵树下。", ok: true },
           { en: "In the kitchen at home.", zh: "在家里的厨房。", ok: false },
@@ -581,7 +581,7 @@ window.LILY_CONTENT = {
           scene: "👩🍰",
           lines: [
             { en: "Her mother made a cake.", zh: "妈妈做了一个蛋糕。" },
-            { en: "Pip wanted some cake too.", zh: "Pip 也想吃蛋糕。" },
+            { en: "Coco wanted some cake too.", zh: "Coco 也想吃蛋糕。" },
           ],
         },
         {
@@ -599,14 +599,14 @@ window.LILY_CONTENT = {
           ],
         },
         {
-          scene: "🦊🔍",
+          scene: "🐱🔍",
           lines: [
-            { en: "Pip looked and looked.", zh: "Pip 找了又找。" },
-            { en: "Then he found the ball.", zh: "然后他找到了球。" },
+            { en: "Coco looked and looked.", zh: "Coco 找了又找。" },
+            { en: "Then she found the ball.", zh: "然后她找到了球。" },
           ],
         },
         {
-          scene: "👧🦊🍰",
+          scene: "👧🐱🍰",
           lines: [
             { en: "They ate the cake together.", zh: "他们一起吃了蛋糕。" },
             { en: "It was a happy day.", zh: "这是开心的一天。" },
@@ -690,7 +690,7 @@ window.LILY_CONTENT = {
         { en: "I like apples because they are sweet.", zh: "我喜欢苹果，因为它们甜。", emoji: "🍎" },
         { en: "We eat rice and fish for dinner.", zh: "晚饭我们吃米饭和鱼。", emoji: "🍚" },
         { en: "I don't like milk, but I like juice.", zh: "我不喜欢牛奶，但是我喜欢果汁。", emoji: "🧃" },
-        { en: "Pip was hungry, so he ate an apple.", zh: "Pip 饿了，所以他吃了一个苹果。", emoji: "🦊" },
+        { en: "Coco was hungry, so she ate an apple.", zh: "Coco 饿了，所以她吃了一个苹果。", emoji: "🐱" },
         { en: "Do you want some cake?", zh: "你想吃点蛋糕吗？", emoji: "🍰" },
         { en: "The cake was sweet, and we ate it.", zh: "蛋糕甜甜的，我们吃了。", emoji: "😋" },
       ],
@@ -706,7 +706,7 @@ window.LILY_CONTENT = {
         { en: "Mimi was under the chair.", zh: "Mimi 在椅子下面。", emoji: "🪑" },
         { en: "The bird can fly, but the duck can swim.", zh: "鸟会飞，但是鸭子会游泳。", emoji: "🦆" },
         { en: "I like rabbits because they are soft.", zh: "我喜欢兔子，因为它们软软的。", emoji: "🐰" },
-        { en: "Pip saw a bird in the tree.", zh: "Pip 看见树上有一只鸟。", emoji: "🐦" },
+        { en: "Coco saw a bird in the tree.", zh: "Coco 看见树上有一只鸟。", emoji: "🐦" },
       ],
     },
     {
@@ -733,7 +733,7 @@ window.LILY_CONTENT = {
         { en: "Her mother made a cake.", zh: "妈妈做了一个蛋糕。", emoji: "🍰" },
         { en: "The gift was a small red ball.", zh: "礼物是一个小红球。", emoji: "🎁" },
         { en: "They played, and then they ate cake.", zh: "他们先玩，然后吃了蛋糕。", emoji: "⚽" },
-        { en: "Pip was happy because he found the ball.", zh: "Pip 很开心，因为他找到了球。", emoji: "🦊" },
+        { en: "Coco was happy because she found the ball.", zh: "Coco 很开心，因为她找到了球。", emoji: "🐱" },
         { en: "It was a happy day.", zh: "这是开心的一天。", emoji: "😊" },
       ],
     },

@@ -163,18 +163,20 @@ if (window.speechSynthesis) {
   });
 }
 
-function foxSvg() {
-  return `<svg class="fox" viewBox="0 0 128 128" aria-hidden="true">
-    <ellipse cx="64" cy="86" rx="40" ry="28" fill="#ffedd5"/>
-    <path d="M24 54 L38 14 L60 50 Z" fill="#e76f51"/>
-    <path d="M104 54 L90 14 L68 50 Z" fill="#e76f51"/>
-    <path d="M38 14 L50 42 L60 50 L38 46 Z" fill="#ffedd5"/>
-    <path d="M90 14 L78 42 L68 50 L90 46 Z" fill="#ffedd5"/>
-    <circle cx="50" cy="78" r="7" fill="#2b2d42"/>
-    <circle cx="78" cy="78" r="7" fill="#2b2d42"/>
-    <circle cx="52" cy="76" r="2.2" fill="#fff"/>
-    <circle cx="80" cy="76" r="2.2" fill="#fff"/>
-    <ellipse cx="64" cy="94" rx="8" ry="5.5" fill="#e76f51"/>
+function catSvg() {
+  return `<svg class="cat" viewBox="0 0 128 128" aria-hidden="true">
+    <ellipse cx="64" cy="96" rx="32" ry="20" fill="#ffedd5"/>
+    <path d="M36 60 L30 18 L60 48 Z" fill="#f4a261"/>
+    <path d="M92 60 L98 18 L68 48 Z" fill="#f4a261"/>
+    <path d="M40 52 L36 28 L54 48 Z" fill="#f8c3b5"/>
+    <path d="M88 52 L92 28 L74 48 Z" fill="#f8c3b5"/>
+    <circle cx="64" cy="70" r="34" fill="#ffedd5"/>
+    <ellipse cx="50" cy="68" rx="5.5" ry="7.5" fill="#2b2d42"/>
+    <ellipse cx="78" cy="68" rx="5.5" ry="7.5" fill="#2b2d42"/>
+    <circle cx="52" cy="65" r="2" fill="#fff"/>
+    <circle cx="80" cy="65" r="2" fill="#fff"/>
+    <path d="M64 78 L59.5 84 L68.5 84 Z" fill="#e76f51"/>
+    <path d="M46 84 H24 M48 90 H28 M82 84 H104 M80 90 H100" fill="none" stroke="#e8b89a" stroke-width="2.4" stroke-linecap="round"/>
   </svg>`;
 }
 
@@ -197,9 +199,9 @@ function topbar() {
 function renderHome() {
   app.innerHTML = `${topbar()}
     <section class="hero">
-      ${foxSvg()}
+      ${catSvg()}
       <div>
-        <h2>${greeting()}！我是 Pip。</h2>
+        <h2>${greeting()}！我是 ${window.LILY_CONTENT.companion.name}。</h2>
         <p>今天想听故事、开口说、读一小段，还是记几个新单词？选一个，我们一起玩十分钟就很好。</p>
       </div>
     </section>
@@ -258,7 +260,7 @@ function renderSpeakMenu() {
     .map(
       (chat) => `<button class="item" data-chat="${chat.id}">
         <div class="badge">${chat.emoji}</div>
-        <div><b>${chat.titleZh}</b><small>${chat.theme} · 和小狐狸说 ${chat.steps.length} 轮</small></div>
+        <div><b>${chat.titleZh}</b><small>${chat.theme} · 和小猫咪说 ${chat.steps.length} 轮</small></div>
       </button>`
     )
     .join("");
@@ -266,7 +268,7 @@ function renderSpeakMenu() {
     <div class="nav-row"><button class="back" data-go="home">← 回家</button><h2>口语</h2></div>
     <div class="list">
       ${chats}
-      <button class="item" data-speak="repeat"><div class="badge">🗣️</div><div><b>跟读</b><small>Pip 说一句，你跟着说</small></div></button>
+      <button class="item" data-speak="repeat"><div class="badge">🗣️</div><div><b>跟读</b><small>Coco 说一句，你跟着说</small></div></button>
       <button class="item" data-speak="questions"><div class="badge">❓</div><div><b>小问答</b><small>听问题，用英文回答</small></div></button>
     </div>
     <p class="tip">聊天时点一句英文，或者说出来。麦克风不能用也没关系，点句子就能把对话说完。</p>`;
@@ -352,7 +354,7 @@ function renderChat() {
   const bubbles = state.chatLog
     .map(
       (line) => `<div class="bubble ${line.who}">
-        <div class="who">${line.who === "pip" ? "Pip" : "我"}</div>
+        <div class="who">${line.who === "pip" ? window.LILY_CONTENT.companion.name : "我"}</div>
         <div class="en">${esc(line.en)}</div>
         <div class="zh ${state.showZh ? "" : "hidden"}">${esc(line.zh)}</div>
       </div>`
@@ -406,12 +408,12 @@ function renderSpeak() {
   app.innerHTML = `${topbar()}
     <div class="nav-row"><button class="back" data-go="speak">← 口语</button><h2>${title} ${state.speakIndex + 1}/${total}</h2></div>
     <div class="panel">
-      ${foxSvg()}
+      ${catSvg()}
       <div class="big-en">${item.en}</div>
       ${extra}
       <p class="status" id="speak-status">${state.recognizing ? "我在听…" : "点按钮，开始说"}</p>
       <div class="row-actions">
-        <button class="primary" data-action="hear-phrase">听 Pip 说</button>
+        <button class="primary" data-action="hear-phrase">听 Coco 说</button>
         <button class="secondary" data-action="listen-me">${state.recognizing ? "正在听…" : "听我说"}</button>
         <button class="ghost" data-action="i-did-it">我会了</button>
         <button class="ghost" data-action="next-speak">下一句</button>
