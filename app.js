@@ -163,21 +163,8 @@ if (window.speechSynthesis) {
   });
 }
 
-function catSvg() {
-  return `<svg class="cat" viewBox="0 0 128 128" aria-hidden="true">
-    <ellipse cx="64" cy="96" rx="32" ry="20" fill="#ffedd5"/>
-    <path d="M36 60 L30 18 L60 48 Z" fill="#f4a261"/>
-    <path d="M92 60 L98 18 L68 48 Z" fill="#f4a261"/>
-    <path d="M40 52 L36 28 L54 48 Z" fill="#f8c3b5"/>
-    <path d="M88 52 L92 28 L74 48 Z" fill="#f8c3b5"/>
-    <circle cx="64" cy="70" r="34" fill="#ffedd5"/>
-    <ellipse cx="50" cy="68" rx="5.5" ry="7.5" fill="#2b2d42"/>
-    <ellipse cx="78" cy="68" rx="5.5" ry="7.5" fill="#2b2d42"/>
-    <circle cx="52" cy="65" r="2" fill="#fff"/>
-    <circle cx="80" cy="65" r="2" fill="#fff"/>
-    <path d="M64 78 L59.5 84 L68.5 84 Z" fill="#e76f51"/>
-    <path d="M46 84 H24 M48 90 H28 M82 84 H104 M80 90 H100" fill="none" stroke="#e8b89a" stroke-width="2.4" stroke-linecap="round"/>
-  </svg>`;
+function catAvatar() {
+  return `<img class="cat" src="./images/coco.jpg" alt="">`;
 }
 
 function topbar() {
@@ -199,7 +186,7 @@ function topbar() {
 function renderHome() {
   app.innerHTML = `${topbar()}
     <section class="hero">
-      ${catSvg()}
+      ${catAvatar()}
       <div>
         <h2>${greeting()}！我是 ${window.LILY_CONTENT.companion.name}。</h2>
         <p>今天可以开口说，也可以学课本和课外故事。选一个，我们一起玩十分钟就很好。</p>
@@ -406,7 +393,7 @@ function renderSpeak() {
   app.innerHTML = `${topbar()}
     <div class="nav-row"><button class="back" data-go="speak">← 口语</button><h2>${title} ${state.speakIndex + 1}/${total}</h2></div>
     <div class="panel">
-      ${catSvg()}
+      ${catAvatar()}
       <div class="big-en">${item.en}</div>
       ${extra}
       <p class="status" id="speak-status">${state.recognizing ? "我在听…" : "点按钮，开始说"}</p>
