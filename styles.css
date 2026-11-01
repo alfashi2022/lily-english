@@ -156,6 +156,7 @@ button {
 .mode.speak { background: linear-gradient(180deg, #ffe8df, #fff); }
 .mode.read { background: linear-gradient(180deg, #fff4d6, #fff); }
 .mode.words { background: linear-gradient(180deg, #e9fbe9, #fff); }
+.mode.speak,
 .mode.book,
 .mode.extra {
   grid-column: 1 / -1;

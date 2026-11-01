@@ -202,18 +202,15 @@ function renderHome() {
       ${catSvg()}
       <div>
         <h2>${greeting()}！我是 ${window.LILY_CONTENT.companion.name}。</h2>
-        <p>今天想听故事、开口说、读一小段，还是记几个新单词？选一个，我们一起玩十分钟就很好。</p>
+        <p>今天可以开口说，也可以学课本和课外故事。选一个，我们一起玩十分钟就很好。</p>
       </div>
     </section>
     <div class="grid">
-      <button class="mode listen" data-go="listen"><span class="emoji">🎧</span><strong>听力</strong><span>听短故事和句子</span></button>
       <button class="mode speak" data-go="speak"><span class="emoji">🎤</span><strong>口语</strong><span>聊天、跟读、小问答</span></button>
-      <button class="mode read" data-go="read"><span class="emoji">📖</span><strong>阅读</strong><span>分级小书，一页一页翻</span></button>
-      <button class="mode words" data-go="words"><span class="emoji">🃏</span><strong>单词</strong><span>句子卡片 + 小测验</span></button>
-      <button class="mode book" data-go="book"><span class="emoji">📘</span><strong>课本学习</strong><span>3A 四个单元，能学也能考</span></button>
+      <button class="mode book" data-go="book"><span class="emoji">📘</span><strong>课本学习</strong><span>3A 四个单元，单词和句子都能学，也能默写</span></button>
       <button class="mode extra" data-go="extra"><span class="emoji">📚</span><strong>课外学习</strong><span>童话故事 1000 词，先学前 7 课</span></button>
     </div>
-    <p class="tip">句子比三年级上册稍进一步，会用 because、but、so，小故事里有过去时。用 Safari 打开后，点「分享 → 添加到主屏幕」，就会像 App 一样。口语需要允许麦克风。</p>`;
+    <p class="tip">用 Safari 打开后，点「分享 → 添加到主屏幕」，就会像 App 一样。口语需要允许麦克风。</p>`;
 }
 
 function renderListenList() {
